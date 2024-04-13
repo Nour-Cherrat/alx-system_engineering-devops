@@ -1,1 +1,6 @@
-0-strace_is_your_friend.pp
+# Fix 500 error when a GET HTTP method is requested to Apache web server
+
+exec {'replace':
+  provider => shell,
+  command  => 'sed -i "s/phpp/php/g" /var/www/html/wp-settings.php'
+}
